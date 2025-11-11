@@ -1,1 +1,111 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Localisation — Bruxelles (Marolles)</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f2ff, #ffffff);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0078ff;
+      color: white;
+      width: 100%;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    header h1 {
+      font-size: 26px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    #map {
+      height: 75vh;
+      width: 90%;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .info-box {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 15px 25px;
+      text-align: center;
+      margin-top: 15px;
+      width: 300px;
+      font-size: 15px;
+    }
+
+    .info-box span {
+      display: block;
+      margin-top: 4px;
+      font-weight: 500;
+      color: #0078ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mon Adresse de Maison</h1>
+    <p>Belgique — Bruxelles (Quartier Marolles)</p>
+  </header>
+
+  <div class="info-box">
+    <div><strong>Nom :</strong> <span>PERRIER FLORENTIN</span></div>
+    <div><strong>Pays :</strong> <span>Belgique</span></div>
+    <div><strong>Ville :</strong> <span>Bruxelles</span></div>
+    <div><strong>Quartier :</strong> <span>Marolles</span></div>
+    <div><strong>Adresse :</strong> <span>rue Royale 2-4, 1000 Marolles,Bruxelles</span></div>
+
+  </div>
+
+  <div id="map"></div>
+
+  <footer>© 2025 — Carte générée pour présentation personnelle. Tous droits réservés.</footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script>
+    // Coordonnées approximatives du quartier Marolles (Bruxelles)
+    const marolles = [50.835, 4.349];
+
+    const map = L.map('map').setView(marolles, 15);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const marker = L.marker(marolles).addTo(map);
+    marker.bindPopup('<b>PERRIER FLORENTIN</b><br>Quartier Marolles, Bruxelles').openPopup();
+  </script>
+</body>
+</html>
+
 
